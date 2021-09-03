@@ -1,0 +1,234 @@
+<!--Navbar -->
+<nav style="font-family: serif;" class="navbar navbar-expand-lg navbar-dark  purple-gradient darken-2 py-lg-0">
+    <a class="navbar-brand" href="#">PStore</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
+        aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item {{stut}}" ng-click="stut4='';stut3=''; stut2='' ;stut1=''; stut='active'">
+                <a class="nav-link" ui-sref="app.home">Home
+                    
+                </a>
+            </li>
+            <li class="nav-item  {{stut1}}" ng-click="stut4='';stut3=''; stut2='' ;stut1='active'; stut=''">
+                <a class="nav-link" ui-sref="app.store">Store</a>
+            </li>
+            <li class="nav-item {{stut2}}" ng-click="stut4='';stut3=''; stut2='active'; stut1=''; stut=''">
+                <a class="nav-link" ui-sref="app.fourm">Fourm</a>
+            </li>
+            <li ng-show="admin" class="nav-item {{stut4}}" ng-click="stut4='active';stut3=''; stut2=''; stut1=''; stut=''">
+                <a class="nav-link" ui-sref="app.dashboard">Dashboard</a>
+            </li>
+            <li ng-show="!admin" class="nav-item {{stut3}}" ng-click="stut4='';stut='';stut3='active'; stut2=''; stut1=''; stut=''">
+                <a class="nav-link" ui-sref="app.contact" >Contact us</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">Categories
+                </a>
+                <div class="dropdown-menu dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-555">
+                    <a class="dropdown-item" ui-sref="app.store" 
+                    ng-click="V_company='Galaxy'; V_price='' ;V_moderinty='';max='';min=''">Galaxy</a>
+                    <a class="dropdown-item" ui-sref="app.store"
+                    ng-click="V_company='iPone'; V_price='' ;V_moderinty='';max='';min=''">iPone</a>
+                    <a class="dropdown-item" ui-sref="app.store" 
+                    ng-click="V_company='Hawaii'; V_price='' ;V_moderinty='';max='';min=''">Hawaii</a>
+                </div>
+            </li>
+
+        </ul>
+
+        <button ng-show="!myId" type="button" ui-sref="app.register" class="btn btn-md btn-outline-info btn-rounded waves-effect">sign
+            in</button>
+            <button ng-show="myId" type="button" ng-click="logout()" class="btn btn-md btn-info btn-rounded">Log out
+                </button>
+        <button ng-show="!myId" type="button" ui-sref="app.login" class="btn btn-md btn-info btn-rounded">Login</button>
+        <ul ng-show="!admin" class="navbar-nav ml-auto nav-flex-icons">
+            <li class="nav-item">
+                <a class="nav-link waves-effect waves-light">{{cartProducts.length}}
+                </a>
+            </li>
+            <li class="nav-item">
+                <a data-toggle="modal" ng-click="getCartProduct()" data-target="#exampleModalPopovers" class="nav-link" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-cart-plus" style="font-size: 25px;"></i>
+                </a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto nav-flex-icons">
+            <li class="nav-item">
+                <a class="nav-link waves-effect waves-light">{{myId?1:''}}
+                    {{localStorage.getItem('userName')}}
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </li>
+            <li class="nav-item avatar dropdown">
+            <a class="nav-link {{myId?'dropdown-toggle':''}}" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                <img src="{{!userImg?'img/person.svg':userImg}}" style="width: 40px;height: 40px;"
+                        class="rounded-circle z-depth-0 py-0" alt="avatar image">
+                </a>
+                <div ng-show="myId" class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
+                    aria-labelledby="navbarDropdownMenuLink-55">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!--/.Navbar -->
+
+<div style="font-family: serif; " ui-view="sub">
+
+</div>
+<!-- Footer -->
+<footer class="page-footer font-small">
+
+    <div class="purple-gradient darken-2 py-0">
+        <div class="container">
+
+            <!-- Grid row-->
+            <div class="row py-4 d-flex align-items-center">
+
+                <!-- Grid column -->
+                <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
+                    <h6 class="mb-0">Get connected with us on social networks!</h6>
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-md-6 col-lg-7 text-center text-md-right">
+
+                    <!-- Facebook -->
+                    <a class="fb-ic">
+                        <i class="fab fa-facebook-f white-text mr-4"> </i>
+                    </a>
+                    <!-- Twitter -->
+                    <a class="tw-ic">
+                        <i class="fab fa-twitter white-text mr-4"> </i>
+                    </a>
+                    <!-- Google +-->
+                    <a class="gplus-ic">
+                        <i class="fab fa-google-plus-g white-text mr-4"> </i>
+                    </a>
+                    <!--Linkedin -->
+                    <a class="li-ic">
+                        <i class="fab fa-linkedin-in white-text mr-4"> </i>
+                    </a>
+                    <!--Instagram-->
+                    <a class="ins-ic">
+                        <i class="fab fa-instagram white-text"> </i>
+                    </a>
+
+                </div>
+                <!-- Grid column -->
+
+            </div>
+            <!-- Grid row-->
+
+        </div>
+    </div>
+
+    <!-- Footer Links -->
+    <div class="container text-center text-md-left mt-5">
+
+        <!-- Grid row -->
+        <div class="row mt-3 dark-grey-text">
+
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-4 col-xl-3 mb-4">
+
+                <!-- Content -->
+                <h6 class="text-uppercase font-weight-bold">Company name</h6>
+                <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
+                    consectetur
+                    adipisicing elit.</p>
+
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+
+                <!-- Links -->
+                <h6 class="text-uppercase font-weight-bold">Products</h6>
+                <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                <p>
+                    <a class="dark-grey-text" href="#!">MDBootstrap</a>
+                </p>
+                <p>
+                    <a class="dark-grey-text" href="#!">MDWordPress</a>
+                </p>
+                <p>
+                    <a class="dark-grey-text" href="#!">BrandFlow</a>
+                </p>
+                <p>
+                    <a class="dark-grey-text" href="#!">Bootstrap Angular</a>
+                </p>
+
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+
+                <!-- Links -->
+                <h6 class="text-uppercase font-weight-bold">Useful links</h6>
+                <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                <p>
+                    <a class="dark-grey-text" href="#!">Your Account</a>
+                </p>
+                <p>
+                    <a class="dark-grey-text" href="#!">Become an Affiliate</a>
+                </p>
+                <p>
+                    <a class="dark-grey-text" href="#!">Shipping Rates</a>
+                </p>
+                <p>
+                    <a class="dark-grey-text" href="#!">Help</a>
+                </p>
+
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+
+                <!-- Links -->
+                <h6 class="text-uppercase font-weight-bold">Contact</h6>
+                <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                <p>
+                    <i class="fas fa-home mr-3"></i> New York, NY 10012, US
+                </p>
+                <p>
+                    <i class="fas fa-envelope mr-3"></i> info@example.com
+                </p>
+                <p>
+                    <i class="fas fa-phone mr-3"></i> + 01 234 567 88
+                </p>
+                <p>
+                    <i class="fas fa-print mr-3"></i> + 01 234 567 89
+                </p>
+
+            </div>
+            <!-- Grid column -->
+
+        </div>
+        <!-- Grid row -->
+
+    </div>
+    <!-- Footer Links -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center text-black-50 py-3">© 2020 Copyright:
+        <a class="dark-grey-text" href="https://mdbootstrap.com/"> MDBootstrap.com</a>
+    </div>
+    <!-- Copyright -->
+
+</footer>
+<!-- Footer -->

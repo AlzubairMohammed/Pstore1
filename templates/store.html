@@ -1,0 +1,236 @@
+<div class="row">
+  <div class="col-lg-2 col-sm-3 col-4">
+    <!-- Grid row -->
+    <div class="row accordion-gradient-bcg d-flex justify-content-center secondary-color px-0 border-top">
+
+      <!-- Grid column -->
+      <div class="col-md-10 col-xl-6 py-5 px-0">
+
+        <!--Accordion wrapper-->
+        <div class="accordion  md-accordion accordion-2 p-0 " id="accordionEx7" role="tablist"
+          aria-multiselectable="true">
+
+          <!-- Accordion card -->
+          <div class="card secondary-color">
+
+            <!-- Card header -->
+            <div class="p-2 rgba-stylish-strong z-depth-1 mb-1" role="tab" id="heading1">
+              <a data-toggle="collapse" data-parent="#accordionEx7" ng-click="$event.preventDefault()" href="#collapse1"
+                aria-expanded="true" aria-controls="collapse1">
+                <h6 class="mb-0 white-text text-uppercase font-thin">
+                  Companies <i class="fas fa-angle-down rotate-icon"></i>
+                </h6>
+              </a>
+            </div>
+
+            <!-- Card body -->
+            <div id="collapse1" class="collapse show" role="tabpanel" aria-labelledby="heading1"
+              data-parent="#accordionEx7">
+              <div class="card-body p-0 rgba-grey-light white-text">
+                <button class="btn btn-primary " href=""
+                  ng-click="V_company='Galaxy'; V_price='' ;V_moderinty='';max='';min=''">Galaxy</button>
+                <button class="btn btn-primary " href=""
+                  ng-click="V_company='iPone'; V_price='' ;V_moderinty='';max='';min=''">iPone</button>
+                <button class="btn btn-primary " href=""
+                  ng-click="V_company='Hawaii'; V_price='' ;V_moderinty='';max='';min=''">Hawaii</button>
+                <button class="btn btn-primary " href=""
+                  ng-click="V_company=''; V_price='' ;V_moderinty='';max='';min=''">All</button>
+
+              </div>
+            </div>
+          </div>
+          <!-- Accordion card -->
+
+          <!-- Accordion card -->
+          <div class="card secondary-color">
+
+            <!-- Card header -->
+            <div class="p-2 rgba-stylish-strong z-depth-1 mb-1" role="tab" id="heading2">
+              <a class="collapsed" data-toggle="collapse" ng-click="$event.preventDefault()" data-parent="#accordionEx7"
+                href="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                <h6 class="mb-0 white-text text-uppercase font-thin">
+                  Prices <i class="fas fa-angle-down rotate-icon"></i>
+                </h6>
+              </a>
+            </div>
+
+            <!-- Card body -->
+            <div id="collapse2" class="collapse" role="tabpanel" aria-labelledby="heading2" data-parent="#accordionEx7">
+              <div class="card-body p-0 mb-1 rgba-grey-light white-text">
+                <button class="btn btn-primary " href=""
+                  ng-click="V_moderinty=''; V_company=''; V_price='';min=10000; max=20000">10000-20000</button>
+                <button class="btn btn-primary " href=""
+                  ng-click="V_moderinty=''; V_company=''; V_price='';min=20000; max=30000">20000-30000</button>
+                <button class="btn btn-primary " href=""
+                  ng-click="V_moderinty=''; V_company=''; V_price='';min=30000; max=40000">30000-40000</button>
+                <button class="btn btn-primary " href=""
+                  ng-click="V_moderinty=''; V_company=''; V_price='';min=0; max=1/0">All</button>
+
+              </div>
+            </div>
+          </div>
+          <!-- Accordion card -->
+
+          <!-- Accordion card -->
+          <div class="card secondary-color">
+
+            <!-- Card header -->
+            <div class="p-2 rgba-stylish-strong z-depth-1 mb-1" role="tab" id="heading3">
+              <a class="collapsed" data-toggle="collapse" ng-click="$event.preventDefault()" data-parent="#accordionEx7"
+                href="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                <h6 class="mb-0 white-text text-uppercase font-thin">
+                  Modernity <i class="fas fa-angle-down rotate-icon"></i>
+                </h6>
+              </a>
+            </div>
+
+            <!-- Card body -->
+            <div id="collapse3" class="collapse" role="tabpanel" aria-labelledby="heading3" data-parent="#accordionEx7">
+              <div class="card-body p-0 mb-1 rgba-grey-light white-text">
+                <button class="btn btn-primary " href=""
+                  ng-click="V_moderinty='New'; V_company=''; V_price='';max='';min=''">New</button>
+                <button class="btn btn-primary " href=""
+                  ng-click="V_moderinty='Old' ;V_company='' ;V_price='';max='';min=''">Old</button>
+                <button class="btn btn-primary " href=""
+                  ng-click="V_moderinty='Brand'; V_company=''; V_price='';max='';min=''">Brand</button>
+                <button class="btn btn-primary " href=""
+                  ng-click="V_moderinty=''; V_company=''; V_price='';max='';min=''">All</button>
+
+              </div>
+            </div>
+          </div>
+          <!-- Accordion card -->
+        </div>
+        <!--/.Accordion wrapper-->
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <div class="col-lg-10 col-sm-9 col-8">
+    <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2">
+      <div class="col wow fadeIn" data-wow-delay="0.2s" ng-repeat="pro in products|filter:{modernity:V_moderinty,type:V_company}|priceFilter:min:max">
+        <!-- Card -->
+        <div class="card m-2" ng-click="de=!de;de? (pons()):(pons1() );de? (C_btn='Bought'):(C_btn='Buy' );">
+
+          <!-- Card image -->
+          <div class="view overlay">
+            <img class="card-img-top" style="height: 200px;" src="{{pro.img}}" alt="Card image cap">
+            <a>
+              <div class="mask rgba-white-slight"></div>
+            </a>
+          </div>
+
+          <!-- Card content -->
+          <div class="card-body" style="height: 250px;">
+            <!-- Title -->
+            <h3 class="card-title">{{pro.name}}</h3>
+            <!-- Text -->
+            <p class="card-text">
+              Price : {{pro.price}} / Modernity : {{pro.modernity}} <br>
+              {{pro.descr}}</p>
+            <!-- Button -->
+            <a data-toggle="modal" data-target="#exampleModalCenter"
+              ng-click="admin?deleteProduct(pro.id):purchases(pro.name,pro.price,pro.type,pro.modernity,pro.descr,pro.img,pro.id);" class="btn btn-{{admin?'danger':'secondary'}}">{{admin?"Delete":"Buy"}}</a>
+
+          </div>
+
+        </div>
+        <!-- Card -->
+
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- Modal1 -->
+<!-- <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true"> -->
+
+  <!-- Add .modal-dialog-centered to .modal-dialog to vertically center the modal -->
+  <!-- <div class="modal-dialog modal-dialog-centered" role="document">
+
+
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+<!-- Modal1 -->
+<!-- Modal2-->
+<div id="exampleModalPopovers" class="modal fade" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalPopoversLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalPopoversLabel">Cart content</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5>My products</h5>
+        <div class="row">
+            <div class="col-6" ng-class="togg?C_btn:''" ng-repeat="cartPro in cartProducts">
+              <!-- Card -->
+              <div class="card m-2">
+      
+                <!-- Card image -->
+                <div class="view overlay">
+                  <img class="card-img-top" style="height: 200px;" src="{{cartPro.img}}" alt="Card image cap">
+                  <a>
+                    <div class="mask rgba-white-slight"></div>
+                  </a>
+                </div>
+      
+                <!-- Card content -->
+                <div class="card-body" style="height: 250px;">
+                  <!-- Title -->
+                  <h3 class="card-title">{{cartPro.name}}</h3>
+                  <!-- Text -->
+                  <p class="card-text">
+                    Price : {{cartPro.price}} / Modernity : {{cartPro.modernity}} <br>
+                    Quantity : {{cartPro.quantity}} <br>
+                    {{cartPro.descr}}</p>
+                  <!-- Button -->
+                  <a ng-click="deleteCartProduct(cartPro.id)" data-toggle="modal" data-target="#exampleModalCenter"
+                    class="btn btn-danger">Remove</a>
+      
+                </div>
+      
+              </div>
+              <!-- Card -->
+      
+      
+            </div>
+    
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal2-->

@@ -1,0 +1,46 @@
+<div class="container">
+  <!-- Grid row -->
+  <div class="row justify-content-center">
+
+    <!-- Grid column -->
+    <div class="col-lg-10 col-xl-8 p-3 card m-5">
+
+     
+        <div ng-repeat="userCo in comment" class=" card m-5 py-3">
+          <img class="d-flex rounded-circle avatar z-depth-1-half mb-3 mx-auto" style="width: 100px;height: 100px;"
+            src="{{userCo.img}}" alt="Avatar">
+          <div class="media-body text-center ml-md-3 ml-0">
+            <h5 class="mt-0 font-weight-bold blue-text">{{userCo.name}}</h5>
+            {{userCo.comment}}
+          </div>
+          <button ng-show="myId&&userName==userCo.name||admin" class="btn btn-danger z-depth-1 mt-3 mb-0"
+                ng-click="userCo.name==userName||admin?deleteComment(userCo.id):''">Delete</button>
+
+        </div>
+        <div>
+          <img class="d-flex rounded-circle avatar z-depth-1-half mb-3 mx-auto" style="width: 100px;height: 100px;"
+            src="{{!userImg?'img/person.svg':userImg}}" alt="Generic placeholder image">
+          <div class="media-body text-center text-md-left ml-md-3 ml-0">
+            <h5 class="mt-0 font-weight-bold blue-text mb-3">{{userName}}</h5>
+            <div class="form-group basic-textarea rounded-corners mb-md-0 mb-4">
+             
+              <textarea required ng-model="userComment" class="form-control z-depth-1" id="exampleFormControlTextarea3" rows="3"
+                placeholder="Wriute your comment..."></textarea>
+              <button class="btn btn-secondary z-depth-1 mt-3 mb-0 ml-5"
+                ng-click="myId&&userComment?sendComment(userName,userComment,userImg):''">Send</button>
+
+            </div>
+          </div>
+      
+        
+
+      
+    </div>
+
+
+  </div>
+  <!-- Grid column -->
+
+</div>
+<!-- Grid row -->
+</div>
