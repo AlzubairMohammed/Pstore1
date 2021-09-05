@@ -2,7 +2,7 @@ angular.module("myApp")
 .controller("AppCtrl",function($scope,$rootScope,$http2,$state,$timeout,$interval){
     $rootScope.stut="active"
     $scope.logout = function(){
-        $userLoggedIn = false
+        $rootScope.userLoggedIn = false
         $state.go("app.home")
     }
 

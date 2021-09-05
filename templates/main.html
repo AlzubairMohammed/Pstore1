@@ -40,44 +40,40 @@
 
         </ul>
 
-        <button ng-show="!myId" type="button" ui-sref="app.register" class="btn btn-md btn-outline-info btn-rounded waves-effect">sign
-            in</button>
-            <button ng-show="myId" type="button" ng-click="logout()" class="btn btn-md btn-info btn-rounded">Log out
-                </button>
-        <button ng-show="!myId" type="button" ui-sref="app.login" class="btn btn-md btn-info btn-rounded">Login</button>
-        <ul ng-show="!admin" class="navbar-nav ml-auto nav-flex-icons">
-            <li class="nav-item">
-                <a class="nav-link waves-effect waves-light">{{cartProducts.length}}
-                </a>
-            </li>
-            <li class="nav-item">
-                <a data-toggle="modal" ng-click="getCartProduct()" data-target="#exampleModalPopovers" class="nav-link" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-cart-plus" style="font-size: 25px;"></i>
-                </a>
-            </li>
-        </ul>
-        <ul class="navbar-nav ml-auto nav-flex-icons">
-            <li class="nav-item">
-                <a class="nav-link waves-effect waves-light">{{myId?1:''}}
-                    {{localStorage.getItem('userName')}}
-                    <i class="fas fa-envelope"></i>
-                </a>
-            </li>
-            <li class="nav-item avatar dropdown">
-            <a class="nav-link {{myId?'dropdown-toggle':''}}" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                <img src="{{!userImg?'img/person.svg':userImg}}" style="width: 40px;height: 40px;"
-                        class="rounded-circle z-depth-0 py-0" alt="avatar image">
-                </a>
-                <div ng-show="myId" class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
-                    aria-labelledby="navbarDropdownMenuLink-55">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-            </li>
-        </ul>
+        <div class="d-flex justify-content-end align-items-center">
+            <a data-toggle="modal" ng-click="getCartProduct()" data-target="#exampleModalPopovers" class="nav-link mr-5" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-cart-plus" style="font-size: 25px;color:#fff"></i>
+            </a>
+
+            <button ng-if="!userLoggedIn" type="button" ui-sref="app.register" class="btn btn-md btn-outline-info btn-rounded waves-effect">sign
+                in</button>
+            <button ng-if="!userLoggedIn" type="button" ui-sref="app.login" class="btn btn-md btn-info btn-rounded">Login</button>
+        
+            
+
+            <ul ng-if="userLoggedIn"  class="navbar-nav ml-auto nav-flex-icons">
+                <li class="nav-item">
+                    <a class="nav-link waves-effect waves-light">{{myId?1:''}}
+                        {{localStorage.getItem('userName')}}
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </li>
+                <li class="nav-item avatar dropdown">
+                <a class="nav-link {{myId?'dropdown-toggle':''}}" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                    <img src="{{!userImg?'img/person.svg':userImg}}" style="width: 40px;height: 40px;"
+                            class="rounded-circle z-depth-0 py-0" alt="avatar image">
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
+                        aria-labelledby="navbarDropdownMenuLink-55">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a ng-click="logout()" class="dropdown-item" href="#">Log Out</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </div>
 </nav>
 <!--/.Navbar -->
