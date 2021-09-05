@@ -7,7 +7,7 @@ angular.module("myApp",["mds","ui.router"])
             views:{
                 main:{
                     templateUrl:"templates/main.html",
-                    controller:"appCtrl"
+                    controller:"AppCtrl"
                 }
             }
         })
@@ -16,7 +16,7 @@ angular.module("myApp",["mds","ui.router"])
             views:{
                 sub:{
                     templateUrl:"templates/home.html",
-                    controller:"homeCtrl"
+                    controller:"HomeCtrl"
                 }
             }
         })
@@ -25,7 +25,7 @@ angular.module("myApp",["mds","ui.router"])
             views:{
                 sub:{
                 templateUrl:"templates/store.html",
-                controller:"storeCtrl"
+                controller:"StoreCtrl"
             }}
         })
         .state("app.fourm",{
@@ -33,7 +33,7 @@ angular.module("myApp",["mds","ui.router"])
             views:{
                 sub:{
                     templateUrl:"templates/fourm.html",
-                    controller:"fourmCtrl"
+                    controller:"FourmCtrl"
                 }
             }
         })
@@ -42,7 +42,7 @@ angular.module("myApp",["mds","ui.router"])
             views:{
                 sub:{
                     templateUrl:"templates/contact.html",
-                    controller:"contactCtrl"
+                    controller:"ContactCtrl"
                 }
             }
         })
@@ -51,7 +51,7 @@ angular.module("myApp",["mds","ui.router"])
             views:{
                 sub:{
                     templateUrl:"templates/register.html",
-                    controller:"registerCtrl"
+                    controller:"RegisterCtrl"
                 }
             }
         })
@@ -60,7 +60,7 @@ angular.module("myApp",["mds","ui.router"])
             views:{
                 sub:{
                     templateUrl:"templates/login.html",
-                    controller:"loginCtrl"
+                    controller:"LoginCtrl"
                 }
             }
         })
@@ -69,7 +69,7 @@ angular.module("myApp",["mds","ui.router"])
             views:{
                 sub:{
                     templateUrl:"templates/cPanel.html",
-                    controller:"dashboardCtrl"
+                    controller:"DashboardCtrl"
                 }
             }
         })

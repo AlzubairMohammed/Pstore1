@@ -112,13 +112,13 @@
   </div>
   <div class="col-lg-10 col-sm-9 col-8">
     <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2">
-      <div class="col wow fadeIn" data-wow-delay="0.2s" ng-repeat="pro in products|filter:{modernity:V_moderinty,type:V_company}|priceFilter:min:max">
+      <div class="col wow fadeIn" data-wow-delay="0.2s" ng-repeat="product in products">
         <!-- Card -->
-        <div class="card m-2" ng-click="de=!de;de? (pons()):(pons1() );de? (C_btn='Bought'):(C_btn='Buy' );">
+        <div class="card m-2">
 
           <!-- Card image -->
           <div class="view overlay">
-            <img class="card-img-top" style="height: 200px;" src="{{pro.img}}" alt="Card image cap">
+            <img class="card-img-top" style="height: 200px;" src="{{product.img}}" alt="Card image cap">
             <a>
               <div class="mask rgba-white-slight"></div>
             </a>
@@ -127,15 +127,13 @@
           <!-- Card content -->
           <div class="card-body" style="height: 250px;">
             <!-- Title -->
-            <h3 class="card-title">{{pro.name}}</h3>
+            <h3 class="card-title">{{product.name}}</h3>
             <!-- Text -->
             <p class="card-text">
-              Price : {{pro.price}} / Modernity : {{pro.modernity}} <br>
-              {{pro.descr}}</p>
+              Price : {{product.price}}</p>
             <!-- Button -->
-            <a data-toggle="modal" data-target="#exampleModalCenter"
-              ng-click="admin?deleteProduct(pro.id):purchases(pro.name,pro.price,pro.type,pro.modernity,pro.descr,pro.img,pro.id);" class="btn btn-{{admin?'danger':'secondary'}}">{{admin?"Delete":"Buy"}}</a>
-
+            <a data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-secondary">Add To Cart</a>
+             
           </div>
 
         </div>
