@@ -1,41 +1,35 @@
 <!--Navbar -->
-<nav style="font-family: serif;" class="navbar navbar-expand-lg navbar-dark  purple-gradient darken-2 py-lg-0">
-    <a class="navbar-brand" href="#">PStore</a>
+<nav style="font-family: serif;" class="navbar navbar-expand-lg navbar-dark  purple-gradient darken-2">
+    <a style="font-size:1.5em;" class="navbar-brand" href="#">PStore</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
         aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item {{stut}}" ng-click="stut4='';stut3=''; stut2='' ;stut1=''; stut='active'">
+        <ul class="navbar-nav ml-5 mr-auto">
+            <li class="nav-item">
                 <a class="nav-link" ui-sref="app.home">Home
                     
                 </a>
             </li>
-            <li class="nav-item  {{stut1}}" ng-click="stut4='';stut3=''; stut2='' ;stut1='active'; stut=''">
+            <li class="nav-item">
                 <a class="nav-link" ui-sref="app.store">Store</a>
-            </li>
-            <li class="nav-item {{stut2}}" ng-click="stut4='';stut3=''; stut2='active'; stut1=''; stut=''">
-                <a class="nav-link" ui-sref="app.fourm">Fourm</a>
-            </li>
-            <li ng-show="admin" class="nav-item {{stut4}}" ng-click="stut4='active';stut3=''; stut2=''; stut1=''; stut=''">
-                <a class="nav-link" ui-sref="app.dashboard">Dashboard</a>
-            </li>
-            <li ng-show="!admin" class="nav-item {{stut3}}" ng-click="stut4='';stut='';stut3='active'; stut2=''; stut1=''; stut=''">
-                <a class="nav-link" ui-sref="app.contact" >Contact us</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-555" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">Categories
                 </a>
                 <div class="dropdown-menu dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-555">
-                    <a class="dropdown-item" ui-sref="app.store" 
-                    ng-click="V_company='Galaxy'; V_price='' ;V_moderinty='';max='';min=''">Galaxy</a>
-                    <a class="dropdown-item" ui-sref="app.store"
-                    ng-click="V_company='iPone'; V_price='' ;V_moderinty='';max='';min=''">iPone</a>
-                    <a class="dropdown-item" ui-sref="app.store" 
-                    ng-click="V_company='Hawaii'; V_price='' ;V_moderinty='';max='';min=''">Hawaii</a>
+                    <a class="dropdown-item" ui-sref="app.store">Galaxy</a>
+                    <a class="dropdown-item" ui-sref="app.store">iPone</a>
+                    <a class="dropdown-item" ui-sref="app.store">Hawaii</a>
                 </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" ui-sref="app.about">About Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" ui-sref="app.contact" >Contact us</a>
             </li>
 
         </ul>
@@ -46,23 +40,17 @@
                 <i class="fas fa-cart-plus" style="font-size: 25px;color:#fff"></i>
             </a>
 
-            <button ng-if="!userLoggedIn" type="button" ui-sref="app.register" class="btn btn-md btn-outline-info btn-rounded waves-effect">sign
+            <button ng-if="!userLoggedIn" type="button" ui-sref="app.register" class="btn btn-sm btn-outline-info btn-rounded waves-effect">sign
                 in</button>
-            <button ng-if="!userLoggedIn" type="button" ui-sref="app.login" class="btn btn-md btn-info btn-rounded">Login</button>
+            <button ng-if="!userLoggedIn" type="button" ui-sref="app.login" class="btn btn-sm btn-info btn-rounded">Login</button>
         
             
 
             <ul ng-if="userLoggedIn"  class="navbar-nav ml-auto nav-flex-icons">
-                <li class="nav-item">
-                    <a class="nav-link waves-effect waves-light">{{myId?1:''}}
-                        {{localStorage.getItem('userName')}}
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                </li>
                 <li class="nav-item avatar dropdown">
                 <a class="nav-link {{myId?'dropdown-toggle':''}}" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
-                    <img src="{{!userImg?'img/person.svg':userImg}}" style="width: 40px;height: 40px;"
+                    <img src="img/person.svg" style="width: 40px;height: 40px;"
                             class="rounded-circle z-depth-0 py-0" alt="avatar image">
                     </a>
                     <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
@@ -78,9 +66,10 @@
 </nav>
 <!--/.Navbar -->
 
-<div style="font-family: serif; " ui-view="sub">
+<!-- Injected Views Goes Here -->
+<div ui-view="sub"></div>
 
-</div>
+
 <!-- Footer -->
 <footer class="page-footer font-small">
 

@@ -28,15 +28,6 @@ angular.module("myApp",["mds","ui.router"])
                 controller:"StoreCtrl"
             }}
         })
-        .state("app.fourm",{
-            url:"/fourm",
-            views:{
-                sub:{
-                    templateUrl:"templates/fourm.html",
-                    controller:"FourmCtrl"
-                }
-            }
-        })
         .state("app.contact",{
             url:"/contact",
             views:{
@@ -64,12 +55,12 @@ angular.module("myApp",["mds","ui.router"])
                 }
             }
         })
-        .state("app.dashboard",{
-            url:"/dashboard",
+        .state("app.about",{
+            url:"/about",
             views:{
                 sub:{
-                    templateUrl:"templates/cPanel.html",
-                    controller:"DashboardCtrl"
+                    templateUrl:"templates/about.html",
+                    controller:"AboutCtrl"
                 }
             }
         })
