@@ -1,8 +1,9 @@
 angular.module("myApp")
 .controller("appCtrl",function($scope,$rootScope,$http2,$state,$timeout,$interval){
     $rootScope.stut="active"
+    $rootScope.myId =localStorage.getItem("ID")
     $scope.logout = function(){
-        $rootScope.myId=''
+        localStorage.removeItem("ID")
         $rootScope.userName=''
         $rootScope.UserComment=''
         $rootScope.userImg=''
@@ -87,8 +88,30 @@ angular.module("myApp")
                 alert("product added to cart successfully")
                 $rootScope.getCartProduct()
             }
+            
+        })
+    }
+    $scope.getQuantity=function(id,quant)
+    {
+        $http2.post("api/getQuantity.php",{
+            id:id,
+            quantity:quant
+        }).then(function(resp){
+            if(resp.data.status){
+                alert("quantity added to cart successfully")
+                $rootScope.getCartProduct()
+            }
             else
-                alert("Failed to added product")
+                alert("Failed to added quantity")
+        })
+    }
+    $rootScope.sendQuantity=function(id)
+    {
+        $http2.post("api/sendQuantity.php",{
+            id:id
+        }).then(function(resp){
+                $scope.getQuantity(id,resp.data)
+            
         })
     }
 
@@ -187,16 +210,18 @@ angular.module("myApp")
     }
 })
 .controller("loginCtrl",function($scope,$rootScope,$http2,$state,$timeout,$interval){
-    $scope.login=function () {
+    $rootScope.login=function () {
         $http2.post("api/login.php",{
             user:$scope.user,
             pass:$scope.pass
         }).then(function (resp) {
-            if(resp.data.status){
-                localStorage['myId'] = resp.data.id
-                $rootScope.myId=localStorage['myId']
+            if(resp.data.status){ 
+                $rootScope.user=resp.data
+                if($rootScope.user.admin ===1){
+                    $rootScope.admin=1
+                }
+                localStorage.setItem("user",JSON.stringify($rootScope.user))
                 $scope.getUser($rootScope.myId)
-                $scope.getAdmin($rootScope.myId)
                 $scope.getUserName($rootScope.myId)
                 $state.go("app.home")
                 $scope.$apply()
@@ -216,22 +241,11 @@ angular.module("myApp")
     })}
     }
     $scope.getUser($rootScope.myId)
-    $scope.getAdmin = function (x){
-        if(x){$http2.post("api/getAdmin.php",{
-            id:$rootScope.myId
-        }).then(function(resp){
-            localStorage['admin'] = resp.data.admin
-            $rootScope.admin = localStorage['admin']
-            $scope.$apply()
-        })}
-    }
-    $scope.getAdmin($rootScope.myId)
     $scope.getUserName = function (x){
         if(x){$http2.post("api/getUserName.php",{
             id:$rootScope.myId
         }).then(function(resp){
-            localStorage['userName'] = resp.data.name
-            $rootScope.userName = localStorage['userName']
+            $rootScope.userName =resp.data.name
             $scope.$apply()
         })}
     }

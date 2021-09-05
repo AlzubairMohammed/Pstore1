@@ -134,7 +134,9 @@
               {{pro.descr}}</p>
             <!-- Button -->
             <a data-toggle="modal" data-target="#exampleModalCenter"
-              ng-click="admin?deleteProduct(pro.id):purchases(pro.name,pro.price,pro.type,pro.modernity,pro.descr,pro.img,pro.id);" class="btn btn-{{admin?'danger':'secondary'}}">{{admin?"Delete":"Buy"}}</a>
+              ng-click="admin?deleteProduct(pro.id):purchases(pro.name,
+              pro.price,pro.type,pro.modernity,pro.descr,pro.img,pro.id);sendQuantity(pro.id)"
+               class="btn btn-{{admin?'danger':'secondary'}}">{{admin?"Delete":"Buy"}}</a>
 
           </div>
 
