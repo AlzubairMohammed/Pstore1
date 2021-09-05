@@ -1,6 +1,7 @@
 <!--Navbar -->
 <nav style="font-family: serif;" class="navbar navbar-expand-lg navbar-dark  purple-gradient darken-2">
-    <a style="font-size:1.5em;" class="navbar-brand" href="#">PStore</a>
+    <div class="container">
+        <a style="font-size:1.5em;" class="navbar-brand" href="#">PStore</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
         aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -35,14 +36,14 @@
         </ul>
 
         <div class="d-flex justify-content-end align-items-center">
-            <a data-toggle="modal" ng-click="getCartProduct()" data-target="#exampleModalPopovers" class="nav-link mr-5" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
+            <a data-toggle="modal" ng-click="showCart()" data-target="#exampleModalPopovers" class="nav-link mr-5" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-cart-plus" style="font-size: 25px;color:#fff"></i>
+                <i class="fas fa-cart-plus" style="font-size: 20px;color:#fff"></i>
             </a>
 
-            <button ng-if="!userLoggedIn" type="button" ui-sref="app.register" class="btn btn-sm btn-outline-info btn-rounded waves-effect">sign
-                in</button>
-            <button ng-if="!userLoggedIn" type="button" ui-sref="app.login" class="btn btn-sm btn-info btn-rounded">Login</button>
+            <button ng-if="!userLoggedIn" type="button" ui-sref="app.login" class="btn btn-sm btn-outline-info btn-rounded font-weight-bold" style="font-family:'Roboto',sans-serif;color:#fff !important;letter-spacing:1px;">Login</button>
+            <button ng-if="!userLoggedIn" type="button" ui-sref="app.register" class="btn btn-sm btn-info btn-rounded waves-effect font-weight-bold" style="font-family:'Roboto',sans-serif;letter-spacing:1px;">Register</button>
+                
         
             
 
@@ -62,6 +63,7 @@
                 </li>
             </ul>
         </div>
+    </div>
     </div>
 </nav>
 <!--/.Navbar -->

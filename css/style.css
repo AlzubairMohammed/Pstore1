@@ -1,3 +1,7 @@
 a {
   font-family: "Roboto", sans-serif;
 }
+
+.list-group-item.active {
+  color: #fff !important;
+}
