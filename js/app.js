@@ -7,7 +7,7 @@ angular.module("myApp",["mds","ui.router"])
             views:{
                 main:{
                     templateUrl:"templates/main.html",
-                    controller:"appCtrl"
+                    controller:"AppCtrl"
                 }
             }
         })
@@ -16,7 +16,7 @@ angular.module("myApp",["mds","ui.router"])
             views:{
                 sub:{
                     templateUrl:"templates/home.html",
-                    controller:"homeCtrl"
+                    controller:"HomeCtrl"
                 }
             }
         })
@@ -25,24 +25,15 @@ angular.module("myApp",["mds","ui.router"])
             views:{
                 sub:{
                 templateUrl:"templates/store.html",
-                controller:"storeCtrl"
+                controller:"StoreCtrl"
             }}
-        })
-        .state("app.fourm",{
-            url:"/fourm",
-            views:{
-                sub:{
-                    templateUrl:"templates/fourm.html",
-                    controller:"fourmCtrl"
-                }
-            }
         })
         .state("app.contact",{
             url:"/contact",
             views:{
                 sub:{
                     templateUrl:"templates/contact.html",
-                    controller:"contactCtrl"
+                    controller:"ContactCtrl"
                 }
             }
         })
@@ -51,7 +42,7 @@ angular.module("myApp",["mds","ui.router"])
             views:{
                 sub:{
                     templateUrl:"templates/register.html",
-                    controller:"registerCtrl"
+                    controller:"RegisterCtrl"
                 }
             }
         })
@@ -60,16 +51,16 @@ angular.module("myApp",["mds","ui.router"])
             views:{
                 sub:{
                     templateUrl:"templates/login.html",
-                    controller:"loginCtrl"
+                    controller:"LoginCtrl"
                 }
             }
         })
-        .state("app.dashboard",{
-            url:"/dashboard",
+        .state("app.about",{
+            url:"/about",
             views:{
                 sub:{
-                    templateUrl:"templates/cPanel.html",
-                    controller:"dashboardCtrl"
+                    templateUrl:"templates/about.html",
+                    controller:"AboutCtrl"
                 }
             }
         })

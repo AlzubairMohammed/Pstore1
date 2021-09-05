@@ -1,2 +1,2 @@
+//Trigger Wowjs 
 new WOW().init();
-// object-fit polyfill run
